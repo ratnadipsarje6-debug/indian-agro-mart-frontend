@@ -43,7 +43,7 @@ useEffect(() => {
     }
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/enquiries', {
+      const response = await fetch('https://indian-agro-mart-backend.onrender.com/api/enquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -54,7 +54,14 @@ useEffect(() => {
           message: formData.message,
         }),
       });
-      const data = await response.json();
+      const text = await response.text();
+
+let data = {};
+try {
+  data = JSON.parse(text);
+} catch (error) {
+  console.log("Response is not JSON:", text);
+}
       if (response.ok) {
   setSuccessMsg('Enquiry submitted successfully');
 const whatsappMessage = `New Enquiry:
