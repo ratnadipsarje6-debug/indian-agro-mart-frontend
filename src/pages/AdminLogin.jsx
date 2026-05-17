@@ -68,11 +68,11 @@ const handleLogin = async (e) => {
             />
           </div>
           <button
-            type="submit"
-            className="w-full bg-primary text-white py-2 rounded hover:bg-green-700 transition-colors"
-          >
-            Login
-          </button>
+  type="submit"
+  className="relative z-[9999] bg-green-600 text-white px-4 py-2 rounded"
+>
+  Login
+</button>
         </form>
       </div>
     </div>

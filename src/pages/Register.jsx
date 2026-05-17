@@ -29,6 +29,7 @@ const Register = () => {
         name,
         email,
         phone: mobile,
+        mobile,
         password,
         city: '',
         role: 'user',
