@@ -25,12 +25,19 @@ const SignIn = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch("https://indian-agro-mart-backend.onrender.com/api/users/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      const data = await response.json();
+      const text = await response.text();
+
+let data = {};
+try {
+  data = JSON.parse(text);
+} catch (error) {
+  console.log("Login response is not JSON:", text);
+}
       if (response.ok) {
         // Log backend response
         console.log(data);
@@ -45,7 +52,7 @@ const SignIn = () => {
         }
         // Notify other components of auth change
         window.dispatchEvent(new Event('authChanged'));
-        setSuccess(data.message || 'Login successful.');
+        setError(err.message || 'Login failed. Server is slow. Please try again.');
         // Redirect to home after login
         navigate('/');
       } else {

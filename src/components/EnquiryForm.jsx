@@ -42,6 +42,16 @@ useEffect(() => {
       return;
     }
     setLoading(true);
+    const whatsappMessage = `New Enquiry:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Product: ${formData.product}
+Message: ${formData.message}`;
+
+window.location.href =
+  `https://wa.me/917499172574?text=${encodeURIComponent(whatsappMessage)}`;
     try {
       const response = await fetch('https://indian-agro-mart-backend.onrender.com/api/enquiries', {
         method: 'POST',
@@ -87,7 +97,7 @@ window.open(
   setErrorMsg(data.message || 'Failed to submit enquiry.');
 }
     } catch (err) {
-      setErrorMsg('An error occurred while submitting your enquiry.');
+      setErrorMsg('Server slow aahe. Please try again or send on WhatsApp.');
     } finally {
       setLoading(false);
     }
