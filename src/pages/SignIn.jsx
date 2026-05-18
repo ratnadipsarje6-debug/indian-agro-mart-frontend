@@ -25,7 +25,11 @@ const SignIn = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch("https://indian-agro-mart-backend.onrender.com/api/login", {
+      setSuccess('Server waking up, please wait...');
+
+await fetch('https://indian-agro-mart-backend.onrender.com/');
+await new Promise((resolve) => setTimeout(resolve, 8000));
+      const response = await fetch("https://indian-agro-mart-backend.onrender.com/api/users/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
