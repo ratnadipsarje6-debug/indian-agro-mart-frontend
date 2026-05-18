@@ -35,6 +35,8 @@ await new Promise((resolve) => setTimeout(resolve, 8000));
         body: JSON.stringify({ email, password }),
       });
       const text = await response.text();
+      console.log(response.status);
+console.log(text);
 
 let data = {};
 try {
@@ -56,7 +58,8 @@ try {
         }
         // Notify other components of auth change
         window.dispatchEvent(new Event('authChanged'));
-        setError(err.message || 'Login failed. Server is slow. Please try again.');
+        setError('');
+setSuccess('Login successful');
         // Redirect to home after login
         navigate('/');
       } else {
