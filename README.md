@@ -59,6 +59,6 @@ Further improvements can include an admin panel, SEO optimization, product manag
 
 ## Developer
 
-**Piyush Sarje**  
+**Ratnadip Sarje**  
 Full Stack Developer  
 GitHub: https://github.com/ratnadipsarje6-debug
